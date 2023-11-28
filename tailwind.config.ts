@@ -22,6 +22,7 @@ const config: Config = {
         textWhite: "#e3e8ed",
         textRed: "#d65060",
         textGreen: "#8ab052",
+        darkBlack: "#0c131d",
       },
     },
   },
