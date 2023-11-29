@@ -2,26 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+/* Customise Scrollbar for coordindators */
+.bar::-webkit-scrollbar {
+  width: 4px;
+  height: 8px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.bar::-webkit-scrollbar-thumb {
+  background-color: #3e4959;
+  
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.bar::-webkit-scrollbar-thumb:hover {
+  background-color: #4a90e2;
+} 
+
+.bar::-webkit-scrollbar-track {
+  background-color: #354051;
+}
+
+.redShade{
+    background-color: rgba(229, 81, 97, .13);
+}
+.greenShade{
+    background-color: rgba(154, 197, 85, .08);
 }
