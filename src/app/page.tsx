@@ -3,6 +3,7 @@ import Heading from "@/components/landingPageComponents/Heading";
 import LogoArea from "@/components/landingPageComponents/LogoArea";
 import TopHeader from "@/components/landingPageComponents/TopHeader";
 import Form from "@/components/landingPageComponents/Form";
+import VideoSection from "@/components/landingPageComponents/Video";
 export default function Home() {
   return (
     <main className="">
@@ -13,6 +14,7 @@ export default function Home() {
           <div className="bg-lightBlue rounded-lg">
             <TopHeader />
             <Form />
+            <VideoSection />
           </div>
        </div>
     </main>

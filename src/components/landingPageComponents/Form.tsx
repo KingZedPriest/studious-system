@@ -118,7 +118,7 @@ const Form = () => {
           <input
             type="submit"
             value="Next Step"
-            className="bg-accentBlue text-center w-full py-3 border-2 border-accentBlue hover:bg-inherit duration-500 hover:text-accentBlue cursor-pointer rounded-lg"
+            className="bg-accentBlue text-center w-full py-3 border-2 font-bold border-accentBlue hover:bg-inherit duration-500 hover:text-accentBlue cursor-pointer rounded-lg"
           />
         </div>
       </form>
