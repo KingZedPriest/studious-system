@@ -25,6 +25,7 @@ const config: Config = {
         bgBlack: "#0c131c",
         textBlue: "#7d8c9e;",
         textWhite: "#f5f5f5;",
+        textLightBlue: "#a5b7d2",
       },
     },
   },
