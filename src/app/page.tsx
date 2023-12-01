@@ -7,6 +7,7 @@ import Form from "@/components/landingPageComponents/Form";
 import VideoSection from "@/components/landingPageComponents/Video";
 import LiveData from "@/components/landingPageComponents/LiveData";
 import Performance from "@/components/landingPageComponents/Performance";
+import Quarterly from "@/components/landingPageComponents/Quarterly";
 //Import Needed Images
 import googleIcon from "../../public/gg-rating.png";
 export default function Home() {
@@ -27,6 +28,7 @@ export default function Home() {
           <VideoSection />
           <LiveData />
           <Performance />
+          <Quarterly />
         </div>
       </div>
     </main>
