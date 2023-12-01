@@ -6,6 +6,7 @@ import TopHeader from "@/components/landingPageComponents/TopHeader";
 import Form from "@/components/landingPageComponents/Form";
 import VideoSection from "@/components/landingPageComponents/Video";
 import LiveData from "@/components/landingPageComponents/LiveData";
+import Performance from "@/components/landingPageComponents/Performance";
 //Import Needed Images
 import googleIcon from "../../public/gg-rating.png";
 export default function Home() {
@@ -25,6 +26,7 @@ export default function Home() {
           </div>
           <VideoSection />
           <LiveData />
+          <Performance />
         </div>
       </div>
     </main>
