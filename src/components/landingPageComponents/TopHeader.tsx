@@ -8,7 +8,7 @@ const TopHeader = () => {
             <p className="text-sm md:text-base shrink-0 cursor-pointer text-opacity-10 font-[100]">Guides</p>
             <p className="text-sm md:text-base shrink-0 cursor-pointer text-opacity-10 font-[100]">Prediction</p>
             <p className="text-sm md:text-base shrink-0 cursor-pointer text-opacity-10 font-[100]">Historical Data</p>
-            <div className="w-[5.2rem] border-b-2 border-accentBlue absolute bottom-0 left-1 ms:left-3 md:left-6"></div>
+            <div className="w-[5.2rem] border-b-2 border-accentBlue absolute bottom-0 left-1 sm:left-3 md:left-6"></div>
         </main>
      );
 }

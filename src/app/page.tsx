@@ -11,6 +11,7 @@ import LiveData from "@/components/landingPageComponents/LiveData";
 import Performance from "@/components/landingPageComponents/Performance";
 import Quarterly from "@/components/landingPageComponents/Quarterly";
 import History from "@/components/landingPageComponents/History";
+import Exchange from "@/components/landingPageComponents/Exchange";
 //Import Needed Images
 import googleIcon from "../../public/gg-rating.png";
 export default function Home() {
@@ -43,6 +44,7 @@ export default function Home() {
           <Performance />
           <Quarterly />
           <History />
+          <Exchange />
         </div>
       </div>
     </main>
