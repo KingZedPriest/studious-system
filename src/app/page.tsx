@@ -12,6 +12,7 @@ import Performance from "@/components/landingPageComponents/Performance";
 import Quarterly from "@/components/landingPageComponents/Quarterly";
 import History from "@/components/landingPageComponents/History";
 import Exchange from "@/components/landingPageComponents/Exchange";
+import Footer from "@/components/landingPageComponents/Footer";
 //Import Needed Images
 import googleIcon from "../../public/gg-rating.png";
 export default function Home() {
@@ -33,7 +34,7 @@ export default function Home() {
             <Link href="" className="bg-accentBlue px-4 sm:px-6 py-2 md:py-3 text-xs sm:text-sm md:text-base rounded-sm hover:bg-bglightBlue border border-accentBlue duration-500">Swap IOV</Link>
           </div>        
         </div>
-        <div className="bg-lightBlue rounded-lg">
+        <div className="bg-lightBlue rounded-lg pb-2">
           <TopHeader />
           <Form />
           <div className="my-4 px-4 sm:px-6 lg:px-8">
@@ -45,6 +46,7 @@ export default function Home() {
           <Quarterly />
           <History />
           <Exchange />
+          <Footer />
         </div>
       </div>
     </main>
