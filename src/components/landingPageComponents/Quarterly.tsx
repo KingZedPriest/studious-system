@@ -317,7 +317,7 @@ const Quarterly = () => {
         />
       </div>
       <div className="flex gap-x-1 overflow-x-auto bar h-8 mt-1">
-        <div className="flex gap-x-5 w-[30rem] items-center">
+        <div className="flex gap-x-5 w-[30rem] items-center shrink-0">
           <ColoredBox
             width=""
             color="bg-inherit"
@@ -364,7 +364,7 @@ const Quarterly = () => {
           textStyles="text-sm md:text-base text-textGreen font-bold"
         />
       </div>
-      <p className="text-sm md:text-base my-8">
+      <p className="text-sm md:text-base text-textBlue my-8">
         The top-performing year for Carlive Chain was 2021 when the price of IOV
         increased by <span className="text-textGreen font-bold">400.82%</span> from $0.00002987 to $0.000150. The worst
         performing year for Carlive Chain was 2018 when the price dropped by
@@ -373,7 +373,6 @@ const Quarterly = () => {
         Chain performs best in Q2 with an average of <span className="text-textGreen font-bold">47.89% </span>gain and worst in Q4
         with <span className="text-textRed font-bold">-38.31% </span>loss.
       </p>
-      <div className="border-b border-slate-700 mb-8"></div>
     </main>
   );
 };

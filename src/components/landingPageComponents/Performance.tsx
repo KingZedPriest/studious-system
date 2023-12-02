@@ -474,7 +474,7 @@ const Performance = () => {
           textStyles="text-sm md:text-base text-textRed font-bold"
         />
       </div>
-      <p className="text-sm md:text-base my-8">
+      <p className="text-sm md:text-base text-textBlue my-8">
         Carlive Chain price in US Dollar has increased by{" "}
         <span className="font-bold text-textGreen">0.00% </span>in the last 1
         month. IOV is down{" "}
