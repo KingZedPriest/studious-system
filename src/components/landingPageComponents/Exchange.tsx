@@ -1,6 +1,7 @@
-//Import Needed Icons
 import Link from "next/link";
+//Import Needed Icons
 import { IoIosArrowDropup } from "react-icons/io";
+import { HiOutlineArrowNarrowDown } from "react-icons/hi";
 
 const Exchange = () => {
   return (
@@ -18,7 +19,7 @@ const Exchange = () => {
         <div className="flex justify-between px-4 py-1 border-b border-slate-700">
           <p className="text-xs font-light text-textBlue">EXCHANGE</p>
           <p className="text-xs font-light text-textBlue">PRICE</p>
-          <p className="text-xs font-light text-textBlue">VOLUME</p>
+          <p className="text-xs font-light text-textBlue flex gap-x-0.5 items-center">VOLUME<HiOutlineArrowNarrowDown size={12} className="text-accentBlue"/></p>
           <p className="text-xs font-light text-textBlue">ACTION</p>
         </div>
         <div className="flex justify-center">
