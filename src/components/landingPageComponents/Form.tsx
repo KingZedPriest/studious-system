@@ -93,7 +93,7 @@ const Form = () => {
         </div>
         <div className="flex flex-col gap-y-2 mt-4">
           <label className="cursor-pointer" htmlFor="membershipCard">
-            Royal Membership Card
+            Royal Membership Card (Optional)
           </label>
           <input
             type="text"

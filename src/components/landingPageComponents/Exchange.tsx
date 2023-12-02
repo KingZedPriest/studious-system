@@ -30,7 +30,7 @@ const Exchange = () => {
       </div>
       <div className="mt-10 flex justify-center">
         <Link
-          href="https://coinhome.app/iovtokenswap/"
+          href=""
           target="_blank"
           className="border border-slate-700 px-4 py-2 text-xs font-bold hover:bg-bgBlack hover:bg-opacity-40 duration-500"
         >
