@@ -1,5 +1,6 @@
 "use client";
-import { redirect } from 'next/navigation'
+import { useState } from "react";
+import { redirect } from "next/navigation";
 import { FormEvent } from "react";
 import { toast } from 'sonner';
 //Import Components
@@ -9,6 +10,7 @@ import { GoDotFill } from "react-icons/go";
 
 
 const Form = () => {
+  const [isTrue, setIsTrue] = useState<boolean>(false)
   //For the first dropdown
   const dropdownOptions = [
     "25000000IOV/25ETH",
@@ -26,9 +28,11 @@ const Form = () => {
   //On Submit Function
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
-    toast.success('Submited the form');
-    redirect('/connect-wallet')
+    toast.success('Your Response Was Collected Successfully. You will be Redirected');
+    setIsTrue(true)
   }
+  //Submits the form and redirects the person to the connect wallet page
+  isTrue && redirect("/connect-wallet")
   //TODO: Add the required attribute to the needed form fields, and also check it via their states before submitting.
   return (
     <main>
