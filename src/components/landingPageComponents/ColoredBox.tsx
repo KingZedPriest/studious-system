@@ -9,7 +9,7 @@ interface BoxProps {
 }
 
 const ColoredBox = ({ width, color, text, position, textStyles }: BoxProps) => (
-  <div className={`w-[${width}] ${color} shrink-0 flex items-center justify-${position}`}>
+  <div className={`${width} ${color} shrink-0 flex items-center justify-${position}`}>
     <p className={textStyles}>{text}</p>
   </div>
 );

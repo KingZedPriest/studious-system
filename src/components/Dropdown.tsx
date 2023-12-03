@@ -33,7 +33,7 @@ const Dropdown = ({options, onSelect}: DropdownProps) => {
             {options.map((option) => (
               <p
                 key={option}
-                className="block px-4 py-2 text-xs md:text-sm text-textWhite hover:bg-bglightBlue  cursor-pointer"
+                className="block px-4 py-2 text-xs md:text-sm text-textWhite hover:bg-bglightBlue font-bold cursor-pointer"
                 onClick={() => handleOptionClick(option)}
               >
                 {option}

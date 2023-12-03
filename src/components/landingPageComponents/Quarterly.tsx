@@ -10,42 +10,42 @@ const Quarterly = () => {
       </p>
       <div className="flex gap-x-1 overflow-x-auto bar h-8 mt-4">
         <ColoredBox
-          width="30rem"
+          width="w-[30rem]"
           color="bg-inherit"
           text="Year"
           position="start"
           textStyles="text-xs font-light text-textBlue"
         />
         <ColoredBox
-          width="10.5rem"
+          width="w-[10.5rem]"
           color="bg-inherit"
           text="Q1"
           position="center"
           textStyles="text-xs font-light text-textBlue"
         />
         <ColoredBox
-          width="11rem"
+          width="w-[11rem]"
           color="bg-inherit"
           text="Q2"
           position="center"
           textStyles="text-xs font-light text-textBlue"
         />
         <ColoredBox
-          width="11rem"
+          width="w-[11rem]"
           color="bg-inherit"
           text="Q3"
           position="center"
           textStyles="text-xs font-light text-textBlue"
         />
         <ColoredBox
-          width="11rem"
+          width="w-[11rem]"
           color="bg-inherit"
           text="Q4"
           position="center"
           textStyles="text-xs font-light text-textBlue"
         />
         <ColoredBox
-          width="11rem"
+          width="w-[11rem]"
           color="bg-inherit"
           text="TOTAL"
           position="center"
@@ -54,42 +54,42 @@ const Quarterly = () => {
       </div>
       <div className="flex gap-x-1 overflow-x-auto bar h-8 mt-1">
         <ColoredBox
-          width="30rem"
+          width="w-[30rem]"
           color="bg-inherit"
           text="2018"
           position="start"
           textStyles="text-sm md:text-base text-textWhite font-bold"
         />
         <ColoredBox
-          width="10.5rem"
+          width="w-[10.5rem]"
           color="bg-inherit"
           text="--"
           position="center"
           textStyles="text-sm md:text-base text-textBlue font-bold"
         />
         <ColoredBox
-          width="11rem"
+          width="w-[11rem]"
           color="bg-inherit"
           text="--"
           position="center"
           textStyles="text-sm md:text-base text-textBlue font-bold"
         />
         <ColoredBox
-          width="11rem"
+          width="w-[11rem]"
           color="redShade"
           text="-81.92%"
           position="center"
           textStyles="text-sm md:text-base text-textRed font-bold"
         />
         <ColoredBox
-          width="11rem"
+          width="w-[11rem]"
           color="redShade"
           text="-46.41%"
           position="center"
           textStyles="text-sm md:text-base text-textRed font-bold"
         />
         <ColoredBox
-          width="11rem"
+          width="w-[11rem]"
           color="redShade"
           text="-90.31%"
           position="center"
@@ -98,42 +98,42 @@ const Quarterly = () => {
       </div>
       <div className="flex gap-x-1 overflow-x-auto bar h-8 mt-1">
         <ColoredBox
-          width="30rem"
+          width="w-[30rem]"
           color="bg-inherit"
           text="2019"
           position="start"
           textStyles="text-sm md:text-base text-textWhite font-bold"
         />
         <ColoredBox
-          width="10.5rem"
+          width="w-[10.5rem]"
           color="redShade"
           text="-67.51%"
           position="center"
           textStyles="text-sm md:text-base text-textRed font-bold"
         />
         <ColoredBox
-          width="11rem"
+          width="w-[11rem]"
           color="greenShade"
           text="43.57%"
           position="center"
           textStyles="text-sm md:text-base text-textGreen font-bold"
         />
         <ColoredBox
-          width="11rem"
+          width="w-[11rem]"
           color="redShade"
           text="-62.77%"
           position="center"
           textStyles="text-sm md:text-base text-textRed font-bold"
         />
         <ColoredBox
-          width="11rem"
+          width="w-[11rem]"
           color="redShade"
           text="-12.40%"
           position="center"
           textStyles="text-sm md:text-base text-textRed font-bold"
         />
         <ColoredBox
-          width="11rem"
+          width="w-[11rem]"
           color="redShade"
           text="-84.79%"
           position="center"
@@ -142,42 +142,42 @@ const Quarterly = () => {
       </div>
       <div className="flex gap-x-1 overflow-x-auto bar h-8 mt-1">
         <ColoredBox
-          width="30rem"
+          width="w-[30rem]"
           color="bg-inherit"
           text="2020"
           position="start"
           textStyles="text-sm md:text-base text-textWhite font-bold"
         />
         <ColoredBox
-          width="10.5rem"
+          width="w-[10.5rem]"
           color="redShade"
           text="-18.31%"
           position="center"
           textStyles="text-sm md:text-base text-textRed font-bold"
         />
         <ColoredBox
-          width="11rem"
+          width="w-[11rem]"
           color="redShade"
           text="-44.57%"
           position="center"
           textStyles="text-sm md:text-base text-textRed font-bold"
         />
         <ColoredBox
-          width="11rem"
+          width="w-[11rem]"
           color="greenShade"
           text="280.59%"
           position="center"
           textStyles="text-sm md:text-base text-textGreen font-bold"
         />
         <ColoredBox
-          width="11rem"
+          width="w-[11rem]"
           color="redShade"
           text="-88.04%"
           position="center"
           textStyles="text-sm md:text-base text-textRed font-bold"
         />
         <ColoredBox
-          width="11rem"
+          width="w-[11rem]"
           color="redShade"
           text="-79.39%"
           position="center"
@@ -186,42 +186,42 @@ const Quarterly = () => {
       </div>
       <div className="flex gap-x-1 overflow-x-auto bar h-8 mt-1">
         <ColoredBox
-          width="30rem"
+          width="w-[30rem]"
           color="bg-inherit"
           text="2021"
           position="start"
           textStyles="text-sm md:text-base text-textWhite font-bold"
         />
         <ColoredBox
-          width="10.5rem"
+          width="w-[10.5rem]"
           color="greenShade"
           text="207.77%"
           position="center"
           textStyles="text-sm md:text-base text-textGreen font-bold"
         />
         <ColoredBox
-          width="11rem"
+          width="w-[11rem]"
           color="greenShade"
           text="192.56%"
           position="center"
           textStyles="text-sm md:text-base text-textGreen font-bold"
         />
         <ColoredBox
-          width="11rem"
+          width="w-[11rem]"
           color="greenShade"
           text="0.54%"
           position="center"
           textStyles="text-sm md:text-base text-textGreen font-bold"
         />
         <ColoredBox
-          width="11rem"
+          width="w-[11rem]"
           color="redShade"
           text="-44.68%"
           position="center"
           textStyles="text-sm md:text-base text-textRed font-bold"
         />
         <ColoredBox
-          width="11rem"
+          width="w-[11rem]"
           color="greenShade"
           text="400.82%"
           position="center"
@@ -230,42 +230,42 @@ const Quarterly = () => {
       </div>
       <div className="flex gap-x-1 overflow-x-auto bar h-8 mt-1">
         <ColoredBox
-          width="30rem"
+          width="w-[30rem]"
           color="bg-inherit"
           text="2022"
           position="start"
           textStyles="text-sm md:text-base text-textWhite font-bold"
         />
         <ColoredBox
-          width="10.5rem"
+          width="w-[10.5rem]"
           color="bg-inherit"
           text="--"
           position="center"
           textStyles="text-sm md:text-base text-textBlue font-bold"
         />
         <ColoredBox
-          width="11rem"
+          width="w-[11rem]"
           color="bg-inherit"
           text="--"
           position="center"
           textStyles="text-sm md:text-base text-textBlue font-bold"
         />
         <ColoredBox
-          width="11rem"
+          width="w-[11rem]"
           color="bg-inherit"
           text="--"
           position="center"
           textStyles="text-sm md:text-base text-textBlue font-bold"
         />
         <ColoredBox
-          width="11rem"
+          width="w-[11rem]"
           color="bg-inherit"
           text="--"
           position="center"
           textStyles="text-sm md:text-base text-textBlue font-bold"
         />
         <ColoredBox
-          width="11rem"
+          width="w-[11rem]"
           color="bg-inherit"
           text="--"
           position="center"
@@ -274,42 +274,42 @@ const Quarterly = () => {
       </div>
       <div className="flex gap-x-1 overflow-x-auto bar h-8 mt-1">
         <ColoredBox
-          width="30rem"
+          width="w-[30rem]"
           color="bg-inherit"
           text="2023"
           position="start"
           textStyles="text-sm md:text-base text-textWhite font-bold"
         />
         <ColoredBox
-          width="10.5rem"
+          width="w-[10.5rem]"
           color="bg-inherit"
           text="--"
           position="center"
           textStyles="text-sm md:text-base text-textBlue font-bold"
         />
         <ColoredBox
-          width="11rem"
+          width="w-[11rem]"
           color="bg-inherit"
           text="--"
           position="center"
           textStyles="text-sm md:text-base text-textBlue font-bold"
         />
         <ColoredBox
-          width="11rem"
+          width="w-[11rem]"
           color="bg-inherit"
           text="--"
           position="center"
           textStyles="text-sm md:text-base text-textBlue font-bold"
         />
         <ColoredBox
-          width="11rem"
+          width="w-[11rem]"
           color="bg-inherit"
           text="--"
           position="center"
           textStyles="text-sm md:text-base text-textBlue font-bold"
         />
         <ColoredBox
-          width="11rem"
+          width="w-[11rem]"
           color="bg-inherit"
           text="--"
           position="center"
@@ -329,35 +329,35 @@ const Quarterly = () => {
         </div>
 
         <ColoredBox
-          width="10.5rem"
+          width="w-[10.5rem]"
           color="greenShade"
           text="24.39%"
           position="center"
           textStyles="text-sm md:text-base text-textGreen font-bold"
         />
         <ColoredBox
-          width="11rem"
+          width="w-[11rem]"
           color="greenShade"
           text="47.89%"
           position="center"
           textStyles="text-sm md:text-base text-textGreen font-bold"
         />
         <ColoredBox
-          width="11rem"
+          width="w-[11rem]"
           color="greenShade"
           text="27.29%"
           position="center"
           textStyles="text-sm md:text-base text-textGreen font-bold"
         />
         <ColoredBox
-          width="11rem"
+          width="w-[11rem]"
           color="redShade"
           text="-38.31%"
           position="center"
           textStyles="text-sm md:text-base text-textRed font-bold"
         />
         <ColoredBox
-          width="11rem"
+          width="w-[11rem]"
           color="greenShade"
           text="29.27%"
           position="center"

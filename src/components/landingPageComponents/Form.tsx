@@ -1,8 +1,12 @@
 "use client";
+import { redirect } from 'next/navigation'
+import { FormEvent } from "react";
+import { toast } from 'sonner';
 //Import Components
 import Dropdown from "../Dropdown";
 //Import Icons
 import { GoDotFill } from "react-icons/go";
+
 
 const Form = () => {
   //For the first dropdown
@@ -19,6 +23,13 @@ const Form = () => {
   const handleDropdownSelect1 = (selectedOption1: string | null) => {
     console.log("Selected option1:", selectedOption1);
   };
+  //On Submit Function
+  const onSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    toast.success('Submited the form');
+    redirect('/connect-wallet')
+  }
+  //TODO: Add the required attribute to the needed form fields, and also check it via their states before submitting.
   return (
     <main>
       <div className="border-b border-slate-700">
@@ -51,7 +62,7 @@ const Form = () => {
           </p>
         </div>
       </div>
-      <form className="mt-10 px-4 sm:px-6 lg:px-8">
+      <form className="mt-10 px-4 sm:px-6 lg:px-8" onSubmit={onSubmit}>
         <div className="flex flex-col gap-y-2">
           <label className="cursor-pointer" htmlFor="email">
             Email
