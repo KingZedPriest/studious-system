@@ -1,4 +1,6 @@
+
 //Import Components 
+
 import Heading from "@/components/connectWalletComponents/Heading";
 const page = () => {
     return ( 

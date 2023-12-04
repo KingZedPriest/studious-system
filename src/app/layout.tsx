@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
+import { Web3Modal } from "@/context/Web3Modal";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -20,11 +21,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`bg-bgBlue text-sm text-textWhite ${roboto.className}`}>
-        {children}
-        <Toaster richColors position="top-center" closeButton/>
-      </body>
-    </html>
+  
+      <html lang="en">
+        <body
+          className={`bg-bgBlue text-sm text-textWhite ${roboto.className}`}
+        >
+          <Web3Modal>{children}</Web3Modal>
+          <Toaster richColors position="top-center" closeButton />
+        </body>
+      </html>
   );
 }

@@ -10,13 +10,15 @@
   },
   "dependencies": {
     "@mux/mux-player-react": "^2.2.0",
-    "ethers": "^6.9.0",
+    "@web3modal/wagmi": "^3.4.0",
     "next": "14.0.1",
     "next-cloudinary": "^5.10.0",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^4.12.0",
-    "sonner": "^1.2.4"
+    "sonner": "^1.2.4",
+    "viem": "^1.19.11",
+    "wagmi": "^1.4.7"
   },
   "devDependencies": {
     "@types/node": "^20",
