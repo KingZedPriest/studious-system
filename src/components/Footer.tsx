@@ -16,13 +16,13 @@ const Footer = () => {
                     <p className="text-xs sm:text-sm md:text-base lg:text-lg font-bold mt-2">Carlive Chain</p>
                 </div>
                 <Image src={securePay} alt="Secure Pay Logo" className="w-20 sm:w-24 md:w-28 lg:w-32"/>
-                <Link href="" className="text-xs sm:text-sm md:text-base lg:text-lg font-bold">About</Link>
-                <Link href="" className="text-xs sm:text-sm md:text-base lg:text-lg font-bold">Contact</Link>
-                <Link href="" className="text-xs sm:text-sm md:text-base lg:text-lg font-bold">Brand</Link>
-                <Link href="" className="text-xs sm:text-sm md:text-base lg:text-lg font-bold">Blog</Link>
-                <Link href="" className="text-xs sm:text-sm md:text-base lg:text-lg font-bold">Community</Link>
-                <Link href="" className="text-xs sm:text-sm md:text-base lg:text-lg font-bold">Litepaper</Link>
-                <Link href="" className="text-xs sm:text-sm md:text-base lg:text-lg font-bold">Terms Of Service</Link>
+                <Link href="/about" className="text-xs sm:text-sm md:text-base lg:text-lg font-bold">About</Link>
+                <Link href="/contact" className="text-xs sm:text-sm md:text-base lg:text-lg font-bold">Contact</Link>
+                <Link href="/brand" className="text-xs sm:text-sm md:text-base lg:text-lg font-bold">Brand</Link>
+                <Link href="/not-found" className="text-xs sm:text-sm md:text-base lg:text-lg font-bold">Blog</Link>
+                <Link href="/not-found" className="text-xs sm:text-sm md:text-base lg:text-lg font-bold">Community</Link>
+                <Link href="/not-found" className="text-xs sm:text-sm md:text-base lg:text-lg font-bold">Litepaper</Link>
+                <Link href="/not-found" className="text-xs sm:text-sm md:text-base lg:text-lg font-bold">Terms Of Service</Link>
             </div>
         </main>
      );

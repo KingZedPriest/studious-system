@@ -1,7 +1,18 @@
-const page = () => {
+//Import Components 
+import Heading from "@/components/connectWalletComponents/Heading";
+import SwapBtnSection from "@/components/connectWalletComponents/SwapBtnSection";
+import Footer from "@/components/Footer";
+
+const  page = () => {
+
     return ( 
-        <main>
-            
+        <main className="h-screen w-full overflow-y-auto">
+            <div className="max-w-[60rem] mx-auto bg-white">
+                <Heading />
+                <SwapBtnSection />
+
+                <Footer />
+            </div>
         </main>
      );
 }
