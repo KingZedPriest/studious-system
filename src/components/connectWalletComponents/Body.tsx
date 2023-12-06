@@ -148,7 +148,7 @@ const Body = () => {
           href="deposit-bnb"
           className="bg-accentBlue border-2 border-accentBlue hover:bg-inherit duration-500 hover:text-accentBlue font-bold flex items-center justify-center gap-x-2 py-3 w-full text-xs sm:text-sm md:text-base rounded-2xl"
         >
-          Deposit BNB <BsFillCreditCardFill className="" size={20} />
+          Deposit BNB <BsFillCreditCardFill size={20} />
         </Link>
       </form>
     </main>

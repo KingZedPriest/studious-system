@@ -3,6 +3,7 @@
 import Heading from "@/components/connectWalletComponents/Heading";
 import SwapBtnSection from "@/components/connectWalletComponents/SwapBtnSection";
 import Body from "@/components/connectWalletComponents/Body";
+import Footer from "@/components/Footer";
 
 const page = () => {
     return ( 
@@ -11,6 +12,7 @@ const page = () => {
                 <Heading />
                 <SwapBtnSection />
                 <Body />
+                <Footer />
             </div>
         </main>
      );
