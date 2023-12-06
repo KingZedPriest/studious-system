@@ -26,6 +26,7 @@
 .greenShade {
   background-color: rgba(154, 197, 85, 0.08);
 }
+
 .connectBackground {
   background: rgb(28, 40, 55);
   background: -moz-radial-gradient(
@@ -44,4 +45,10 @@
     rgba(74, 144, 226, 1) 100%
   );
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1c2837",endColorstr="#4a90e2",GradientType=1);
+}
+
+.blueShadow {
+  box-shadow: 0px 0px 5px 0px rgba(74, 144, 226, 0.8);
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(74, 144, 226, 0.8);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(74, 144, 226, 0.8);
 }
