@@ -4,7 +4,7 @@ const Form = () => {
       <p className="text-center font-bold  text-sm sm:text-base md:text-lg lg:text-xl">
         Contact us
       </p>
-      <p className="text-xs sm:text-sm md:text-base mt-10 text-center">
+      <p className="text-xs sm:text-sm md:text-base lg:text-lg mt-10 text-center">
         Drop us a line with any questions, inquiries or business proposals.
       </p>
       <form className="mt-10">

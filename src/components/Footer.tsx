@@ -30,10 +30,10 @@ const Footer = () => {
                 <Link href="/about" className="text-xs sm:text-sm md:text-base lg:text-lg font-bold">About</Link>
                 <Link href="/contact" className="text-xs sm:text-sm md:text-base lg:text-lg font-bold">Contact</Link>
                 <Link href="/brand" className="text-xs sm:text-sm md:text-base lg:text-lg font-bold">Brand</Link>
-                <Link href="/not-found" className="text-xs sm:text-sm md:text-base lg:text-lg font-bold">Blog</Link>
-                <Link href="/not-found" className="text-xs sm:text-sm md:text-base lg:text-lg font-bold">Community</Link>
-                <Link href="/not-found" className="text-xs sm:text-sm md:text-base lg:text-lg font-bold">Litepaper</Link>
-                <Link href="/not-found" className="text-xs sm:text-sm md:text-base lg:text-lg font-bold">Terms Of Service</Link>
+                <Link href="/blog" className="text-xs sm:text-sm md:text-base lg:text-lg font-bold">Blog</Link>
+                <Link href="/community" className="text-xs sm:text-sm md:text-base lg:text-lg font-bold">Community</Link>
+                <Link href="/litepaper" className="text-xs sm:text-sm md:text-base lg:text-lg font-bold">Litepaper</Link>
+                <Link href="/terms-of-service" className="text-xs sm:text-sm md:text-base lg:text-lg font-bold">Terms Of Service</Link>
             </div>
             <div className="flex gap-x-3 justify-center py-10">
                 <div className="h-8 w-8 rounded-[50%] border border-black flex items-center justify-center transform group hover:border-accentBlue hover:-translate-y-2 duration-500">
