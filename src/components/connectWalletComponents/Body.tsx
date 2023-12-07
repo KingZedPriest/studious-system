@@ -12,7 +12,7 @@ import { BsFillCreditCardFill } from "react-icons/bs";
 
 const Body = () => {
   //For the numbers
-  const [number, setNumber] = useState<number>(100000000);
+  const [number, setNumber] = useState<number>();
   //Know When The Wallet Is Connected
   const { isConnected } = useAccount();
   //For the Amount to send and everything under
@@ -34,6 +34,11 @@ const Body = () => {
       gasFee = 0.5;
       quantity = 75;
       balance = 119;
+      break;
+    case 100000000:
+      gasFee = 1.0;
+      quantity = 100;
+      balance = 396.98;
       break;
     default:
       gasFee = 1.0;
