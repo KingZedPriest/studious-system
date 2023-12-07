@@ -91,9 +91,9 @@ const Body = () => {
            </div>
            <form>
                 <input type="text" name="transactionID" id="transactionID" className="text-bgBlue caret-bgBlue focus:outline-none w-full px-4 py-3 mt-6 blackShadow rounded-2xl placeholder:text-xs md:placeholder:text-sm" placeholder="Enter Your Transaction ID"/>
-                <input type="submit" value="Confirm" className="font-bold w-full bg-bgBlue rounded-2xl mt-6 py-3 md:py-4 cursor-pointer hover:bg-slate-700 duration-500" />
+                <input type="submit" value="Confirm" className="font-bold w-full bg-bgBlue rounded-2xl my-8 py-3 md:py-4 cursor-pointer hover:bg-slate-700 duration-500" />
            </form>
-           <p className="mt-6 text-xs sm:text-sm md:text-base lg:text-lg text-bgBlue ">Minimum Deposit <span className="font-bold">0.25 BNB</span></p>
+           <p className="mt-4 text-xs sm:text-sm md:text-base lg:text-lg text-bgBlue ">Minimum Deposit <span className="font-bold">0.25 BNB</span></p>
            <p className="mt-4 text-xs sm:text-sm lg:text-base text-bgBlue">If a deposit is below the required minimum the fund will not be credited to your wallet.</p>
         </main>
      );
