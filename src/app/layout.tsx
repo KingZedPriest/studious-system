@@ -3,6 +3,7 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
 import { Web3Modal } from "@/context/Web3Modal";
+import Whatsapp from "@/components/Whatsapp";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -25,7 +26,7 @@ export default function RootLayout({
       <html lang="en">
         <body
           className={`bg-bgBlue text-sm text-textWhite ${roboto.className}`}
-        >
+        > <Whatsapp />
           <Web3Modal>{children}</Web3Modal>
           <Toaster richColors position="top-center" closeButton />
         </body>
