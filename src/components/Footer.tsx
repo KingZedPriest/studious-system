@@ -6,6 +6,12 @@ import bodyImg from "../../public/slider1-graphic1.png";
 import logo from "../../public/logo.png";
 import securePay from "../../public/securepayLogo.png";
 
+//Import Needed Icons
+import { TbBrandTelegram } from "react-icons/tb";
+import { SiInstagram } from "react-icons/si";
+import { RiTiktokLine } from "react-icons/ri";
+import { SlSocialFacebook } from "react-icons/sl";
+
 const Footer = () => {
     return ( 
         <main>
@@ -23,6 +29,20 @@ const Footer = () => {
                 <Link href="/not-found" className="text-xs sm:text-sm md:text-base lg:text-lg font-bold">Community</Link>
                 <Link href="/not-found" className="text-xs sm:text-sm md:text-base lg:text-lg font-bold">Litepaper</Link>
                 <Link href="/not-found" className="text-xs sm:text-sm md:text-base lg:text-lg font-bold">Terms Of Service</Link>
+            </div>
+            <div className="flex gap-x-3 justify-center py-10">
+                <div className="h-8 w-8 rounded-[50%] border border-black flex items-center justify-center transform group hover:border-accentBlue hover:-translate-y-2 duration-500">
+                    <Link href="https://t.me/Airdropiovswapbonus" target="_blank"><TbBrandTelegram className="text-black group-hover:text-accentBlue duration-500" size={16}/></Link>
+                </div>
+                <div className="h-8 w-8 rounded-[50%] border border-black flex items-center justify-center transform group hover:border-accentBlue hover:-translate-y-2 duration-500">
+                    <Link href="https://instagram.com/iovtokenswapteam?igshid=OGY3MTU3OGY1Mw==" target="_blank"><SiInstagram className="text-black group-hover:text-accentBlue duration-500" size={16}/></Link>
+                </div>
+                <div className="h-8 w-8 rounded-[50%] border border-black flex items-center justify-center transform group hover:border-accentBlue hover:-translate-y-2 duration-500">
+                    <Link href="https://www.tiktok.com/@carlive.chain.iov?_r=1&_d=e72054afi51f1j&sec_uid=MS4wLjABAAAAIO43Qw-u_CyUeiE1SjEzdHMzvlb4W17Z3YwW8hJxKRxygyqZFCe4_jAkEeKhyYyg&share_author_id=7214234522030785542&sharer_language=en&source=h5_m&u_code=e74c8415idc8g6&timestamp=1699560788&user_id=7214234522030785542&sec_user_id=MS4wLjABAAAAIO43Qw-u_CyUeiE1SjEzdHMzvlb4W17Z3YwW8hJxKRxygyqZFCe4_jAkEeKhyYyg&utm_source=copy&utm_campaign=client_share&utm_medium=android&share_iid=7278156595362989829&share_link_id=dbf14740-77f8-4d80-837d-f05df66bd168&share_app_id=1233&ugbiz_name=ACCOUNT&ug_btm=b8727%2Cb0229&social_share_type=5" target="_blank"><RiTiktokLine className="text-black group-hover:text-accentBlue duration-500" size={16}/></Link>
+                </div>
+                <div className="h-8 w-8 rounded-[50%] border border-black flex items-center justify-center transform group hover:border-accentBlue hover:-translate-y-2 duration-500">
+                    <Link href="https://www.facebook.com/profile.php?id=61551019777502" target="_blank"><SlSocialFacebook className="text-black group-hover:text-accentBlue duration-500" size={16}/></Link>
+                </div>
             </div>
         </main>
      );

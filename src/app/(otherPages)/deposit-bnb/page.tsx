@@ -1,6 +1,7 @@
 //Import Components 
 import Heading from "@/components/connectWalletComponents/Heading";
 import SwapBtnSection from "@/components/connectWalletComponents/SwapBtnSection";
+import Body from "@/components/depositComponents/Body";
 import Footer from "@/components/Footer";
 
 const  page = () => {
@@ -10,7 +11,7 @@ const  page = () => {
             <div className="max-w-[60rem] mx-auto bg-white">
                 <Heading />
                 <SwapBtnSection />
-
+                <Body />
                 <Footer />
             </div>
         </main>
