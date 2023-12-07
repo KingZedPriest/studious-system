@@ -38,7 +38,7 @@ const Body = () => {
     default:
       gasFee = 1.0;
       quantity = 100;
-      balance = 376;
+      balance = 396.98;
   }
   return (
     <main className="py-2 px-4 sm:px-6 lg:px-8 mt-10">

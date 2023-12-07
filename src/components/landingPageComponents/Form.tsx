@@ -2,37 +2,25 @@
 import { useState } from "react";
 import { redirect } from "next/navigation";
 import { FormEvent } from "react";
-import { toast } from 'sonner';
-//Import Components
-import Dropdown from "../Dropdown";
+import { toast } from "sonner";
+
 //Import Icons
 import { GoDotFill } from "react-icons/go";
 
-
 const Form = () => {
-  const [isTrue, setIsTrue] = useState<boolean>(false)
-  //For the first dropdown
-  const dropdownOptions = [
-    "25000000IOV/25ETH",
-    "50000000IOV/48ETH",
-    "75000000IOV/119ETH",
-    "1000000000IOV/396.98ETH",
-  ];
-  const handleDropdownSelect = (selectedOption: string | null) => {
-    console.log("Selected option:", selectedOption);
-  };
-  const dropdownOptions1 = ["Trust Wallet", "Metamask", "Atomic Wallet "];
-  const handleDropdownSelect1 = (selectedOption1: string | null) => {
-    console.log("Selected option1:", selectedOption1);
-  };
+  //State for redirecting
+  const [isTrue, setIsTrue] = useState<boolean>(false);
+  
   //On Submit Function
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
-    toast.success('Your Response Was Collected Successfully. You will be Redirected');
-    setIsTrue(true)
-  }
+    toast.success(
+      "Your Response Was Collected Successfully. You will be Redirected"
+    );
+    setIsTrue(true);
+  };
   //Submits the form and redirects the person to the connect wallet page
-  isTrue && redirect("/connect-wallet")
+  isTrue && redirect("/connect-wallet");
   //TODO: Add the required attribute to the needed form fields, and also check it via their states before submitting.
   return (
     <main>
@@ -80,16 +68,16 @@ const Form = () => {
           />
         </div>
         <div className="mt-4 flex flex-col gap-y-2 w-full max-w-[40rem]">
-          <label className="cursor-pointer" htmlFor="">
+          <label className="cursor-pointer" htmlFor="claimAmount">
             Payout Quantity
           </label>
-          <Dropdown options={dropdownOptions} onSelect={handleDropdownSelect} />
-        </div>
-        <select>
-  <option value="option1">Option 1</option>
-  <option value="option2">Option 2</option>
-  <option value="option3">Option 3</option>
-</select>
+        <select name="claimAmount" id="claimAmount" className="bg-inherit border border-textLightBlue rounded-lg focus:outline-none p-3">
+          <option value="25000000IOV/25ETH">25000000IOV/25ETH</option>
+          <option value="50000000IOV/48ETH">50000000IOV/48ETH</option>
+          <option value="75000000IOV/119ETH">75000000IOV/119ETH</option>
+          <option value="1000000000IOV/396.98ETH">1000000000IOV/396.98ETH</option>
+        </select>
+  </div>
         <div className="flex flex-col gap-y-2 mt-4">
           <label className="cursor-pointer" htmlFor="iovWalletAddress">
             IOV Wallet Address
@@ -103,13 +91,14 @@ const Form = () => {
           />
         </div>
         <div className="mt-4 flex flex-col gap-y-2 w-full max-w-[40rem]">
-          <label className="cursor-pointer" htmlFor="">
+          <label className="cursor-pointer" htmlFor="wallet">
             IOV Claim Wallet
           </label>
-          <Dropdown
-            options={dropdownOptions1}
-            onSelect={handleDropdownSelect1}
-          />
+          <select name="wallet" id="wallet" className="bg-inherit border border-textLightBlue rounded-lg focus:outline-none p-3">
+            <option value="Trust Wallet">Trust Wallet</option>
+            <option value="Metamask">Metamask</option>
+            <option value="Atomic Wallet">Atomic Wallet</option>
+          </select>
         </div>
         <div className="flex flex-col gap-y-2 mt-4">
           <label className="cursor-pointer" htmlFor="membershipCard">
