@@ -85,6 +85,11 @@ const Form = () => {
           </label>
           <Dropdown options={dropdownOptions} onSelect={handleDropdownSelect} />
         </div>
+        <select>
+  <option value="option1">Option 1</option>
+  <option value="option2">Option 2</option>
+  <option value="option3">Option 3</option>
+</select>
         <div className="flex flex-col gap-y-2 mt-4">
           <label className="cursor-pointer" htmlFor="iovWalletAddress">
             IOV Wallet Address

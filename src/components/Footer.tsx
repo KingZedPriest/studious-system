@@ -5,6 +5,7 @@ import Link from "next/link";
 import bodyImg from "../../public/slider1-graphic1.png";
 import logo from "../../public/logo.png";
 import securePay from "../../public/securepayLogo.png";
+import binanceLogo from "../../public/BinanceLgo.png";
 
 //Import Needed Icons
 import { TbBrandTelegram } from "react-icons/tb";
@@ -21,7 +22,11 @@ const Footer = () => {
                     <Image src={logo} alt="smartchain logo" className="w-12 sm:w-12 md:w-14"/>
                     <p className="text-xs sm:text-sm md:text-base lg:text-lg font-bold mt-2">Carlive Chain</p>
                 </div>
-                <Image src={securePay} alt="Secure Pay Logo" className="w-20 sm:w-24 md:w-28 lg:w-32"/>
+                <div className="flex gap-x-5 items-end mt-4">
+                    <Image src={securePay} alt="Secure Pay Logo" className="w-20 sm:w-24 md:w-28 lg:w-32"/>
+                    <Image src={binanceLogo} alt="Binance Logo" className="w-14 sm:w-16 md:w-20 lg:w-24 mb-3 lg:mb-5"/>
+                </div>
+                
                 <Link href="/about" className="text-xs sm:text-sm md:text-base lg:text-lg font-bold">About</Link>
                 <Link href="/contact" className="text-xs sm:text-sm md:text-base lg:text-lg font-bold">Contact</Link>
                 <Link href="/brand" className="text-xs sm:text-sm md:text-base lg:text-lg font-bold">Brand</Link>
