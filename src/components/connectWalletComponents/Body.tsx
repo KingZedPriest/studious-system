@@ -1,7 +1,6 @@
-"use client";
-import { useAccount } from "wagmi";
+"use client"
 import Link from "next/link";
-import { useState } from "react";
+import useStore from "@/store/store";
 //Import Icons
 import { HiFire } from "react-icons/hi";
 import { IoMdSettings } from "react-icons/io";
@@ -12,9 +11,8 @@ import { BsFillCreditCardFill } from "react-icons/bs";
 
 const Body = () => {
   //For the numbers
-  const [number, setNumber] = useState<number>();
-  //Know When The Wallet Is Connected
-  const { isConnected } = useAccount();
+  const { number, setNumber } = useStore();
+
   //For the Amount to send and everything under
   let gasFee;
   let balance;
@@ -41,9 +39,9 @@ const Body = () => {
       balance = 396.98;
       break;
     default:
-      gasFee = 1.0;
-      quantity = 100;
-      balance = 396.98;
+      gasFee = 0;
+      quantity = 0;
+      balance = 0;
   }
   return (
     <main className="py-2 px-4 sm:px-6 lg:px-8 mt-10">
@@ -80,7 +78,7 @@ const Body = () => {
           name="balance"
           id="balance"
           disabled
-          value={`${isConnected ? balance : 0}`}
+          value={balance}
         />
         <div className="flex cursor-not-allowed items-center justify-center blackShadow rounded-[50%] my-10 bg-accentBlue bg-opacity-10 mx-auto h-8 w-8">
           <IoIosArrowUp className="text-accentBlue" size={24} />
@@ -99,7 +97,7 @@ const Body = () => {
           name="balance"
           id="balance"
           disabled
-          value={`${isConnected ? number : 0}`}
+          value={number}
         />
         <div className="flex justify-between mt-10">
           <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-700 font-bold">
@@ -111,7 +109,7 @@ const Body = () => {
         </div>
         <div className="mt-6 flex justify-between">
           <button
-            onClick={() => setNumber(25000000)}
+            type="button" onClick={() => setNumber(25000000)}
             className={`font-bold px-4 sm:px-6 md:px-8 lg-px-10 py-2 rounded-lg bg-${
               number === 25000000 ? "inherit text-accentBlue" : "accentBlue"
             } border border-accentBlue hover:bg-inherit duration-500 hover:text-accentBlue text-xs md:text-sm lg:text-base`}
@@ -119,7 +117,7 @@ const Body = () => {
             25%
           </button>
           <button
-            onClick={() => setNumber(50000000)}
+            type="button" onClick={() => setNumber(50000000)}
             className={`font-bold px-4 sm:px-6 md:px-8 lg-px-10 py-2 rounded-lg bg-${
               number === 50000000 ? "inherit text-accentBlue" : "accentBlue"
             } border border-accentBlue hover:bg-inherit duration-500 hover:text-accentBlue text-xs md:text-sm lg:text-base`}
@@ -127,7 +125,7 @@ const Body = () => {
             50%
           </button>
           <button
-            onClick={() => setNumber(75000000)}
+            type="button" onClick={() => setNumber(75000000)}
             className={`font-bold px-4 sm:px-6 md:px-8 lg-px-10 py-2 rounded-lg bg-${
               number === 75000000 ? "inherit text-accentBlue" : "accentBlue"
             } border border-accentBlue hover:bg-inherit duration-500 hover:text-accentBlue text-xs md:text-sm lg:text-base`}
@@ -135,7 +133,7 @@ const Body = () => {
             75%
           </button>
           <button
-            onClick={() => setNumber(100000000)}
+            type="button" onClick={() => setNumber(100000000)}
             className={`font-bold px-4 sm:px-6 md:px-8 lg-px-10 py-2 rounded-lg bg-${
               number === 100000000 ? "inherit text-accentBlue" : "accentBlue"
             } border border-accentBlue hover:bg-inherit duration-500 hover:text-accentBlue text-xs md:text-sm lg:text-base`}
