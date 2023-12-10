@@ -4,6 +4,7 @@ import "./globals.css";
 import { Toaster } from "sonner";
 import { Web3Modal } from "@/context/Web3Modal";
 import Whatsapp from "@/components/Whatsapp";
+import LiveChat from "@/components/LiveChat";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -27,6 +28,7 @@ export default function RootLayout({
         <body
           className={`bg-bgBlue text-sm text-textWhite ${roboto.className}`}
         > <Whatsapp />
+          <LiveChat />
           <Web3Modal>{children}</Web3Modal>
           <Toaster richColors position="top-center" closeButton />
         </body>
