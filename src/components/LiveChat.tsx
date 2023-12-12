@@ -16,7 +16,7 @@ const Popup = ({ onClose }: PopupProps) => {
           size={40}
         />
         <iframe
-          src="https://tawk.to/chat/6572beb007843602b8ff9140/1hh43hoo3"
+          src={process.env.HELP_APP_WEBSITE_URL}
           width="100%"
           height="100%"
         ></iframe>
