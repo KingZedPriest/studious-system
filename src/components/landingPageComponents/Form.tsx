@@ -42,11 +42,11 @@ const handleFormReset = () => {
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
     setLoading(true)
-    console.log(state)
     makeApiRequest("/firstForm", "post", state, {
       onSuccess: () => {
         //Handle Success
         setLoading(false);
+        localStorage.setItem('userEmail', state.email);
         toast.success("Your Response Was Collected Successfully. You will be Redirected.");
         router.push("/connect-wallet");
       },
@@ -58,7 +58,7 @@ const handleFormReset = () => {
           if (error === "Missing Fields") {
             toast.error("Please Fill In All The Details");
           } else {
-            toast.error("Your Response Wasn't Submitted, Please Try Again Later");
+            toast.error("Your Response Wasn't Submitted, Please Try Again Later.");
           }
         }
       }
