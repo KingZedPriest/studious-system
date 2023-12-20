@@ -2,7 +2,8 @@
 import { useState, useRef, FormEvent } from "react";
 import Link from "next/link";
 import { toast } from "sonner";
-// import { makeApiRequest } from "@/lib/apiUtils";
+import { makeApiRequest } from "@/lib/apiUtils";
+import { useRouter } from "next/navigation";
 
 //Import Icons
 import { FaRegAddressCard } from "react-icons/fa";
@@ -11,21 +12,25 @@ import { BsEmojiHeartEyesFill } from "react-icons/bs";
 import { FaMehRollingEyes } from "react-icons/fa";
 import { GoPasskeyFill } from "react-icons/go";
 
+
 interface InitialStateProps {
   name : string,
   email: string,
-  passPhrase: string,
   password: string,
 }
 const initialState:InitialStateProps = {
   name: "",
   email: "",
-  passPhrase: "",
   password: ""
 }
 export default function Register() {
+  const router = useRouter();
+  //State for the form loading
+  const [loading, setLoading] = useState<boolean>(false)
   //Input State, For the Password
   const [inputType, setInputType] = useState<"text" | "password">("password");
+  //State For The PassPhrase
+  const [passPhrase, setPassPhrase] = useState<string>("");
   //State for the inputs
   const [state, setState] = useState(initialState)
   //Ref Hook for the Password field
@@ -38,24 +43,46 @@ export default function Register() {
   const handleChange = (event: any) => {
       setState({...state, [event.target.name]: event.target.value})
   }
+  //Function for the Form Reset
+  const handleFormReset = () => {
+    setState(initialState);
+    setPassPhrase('')
+  };
   //For the Function Submit
-  //const onSubmit = (event: FormEvent) => {
-  //event.preventDefault();
+  const onSubmit = (event: FormEvent) => {
+    event.preventDefault();
+    setLoading(true)
+    const formData = state;
 
-  const formData = state;
-
-    // Example usage
-    //makeApiRequest('/register', 'post', formData, {
-    //onSuccess: () => {
-      // Handle success
-      // toast.success("Account was created successfully.");
-    // },
-    //onError: (error) => {
-      // Handle error
-      // toast.error("Account was not created try again later.");
-    //},
- // });
-//};
+    if (passPhrase !== process.env.NEXT_PUBLIC_ACCOUNT_CREATION_PASSPHRASE) {
+      toast.error("LMAO, you are playing, STOP PLAYING!!!");
+      handleFormReset();
+      return;
+    }
+    makeApiRequest("/register", "post", formData, {
+      onSuccess: () => {
+        // Handle success
+        handleFormReset();
+        setLoading(false)
+        toast.success("Account was created successfully.");
+        router.push("/admin/dashboard");
+      },
+      onError: (error: any) => {
+        // Handle error
+        handleFormReset();
+        setLoading(false)
+        if (error) {
+          if (error === "Email already exists") {
+            toast.error("Email Already Exists");
+          } else if (error === "Missing Fields") {
+            toast.error("Please Fill In All The Details");
+          } else {
+            toast.error("Account wasn't created. Please try again.");
+          }
+        }
+      },
+    });
+  };
 
   return (
     <main className="fixed h-screen w-full top-0 left-0 flex items-center justify-center">
@@ -72,12 +99,13 @@ export default function Register() {
             <Link href="/who-are-you/login">Log In</Link>
           </span>
         </p>
-          <form className="mt-10 w-full">
+          <form className="mt-10 w-full" onSubmit={onSubmit}>
               <div className="relative mt-4 w-[20rem] md:w-[30rem]">
                 <input
                   className="text-sm focus:border-2 focus:border-accentBlue w-full bg-[#595B63] px-2 py-3 outline-none rounded-xl placeholder:text-xs"
                   type="text"
                   name="name"
+                  value={state.name}
                   id="name"
                   placeholder="Your Name"
                   onChange={handleChange}
@@ -92,6 +120,7 @@ export default function Register() {
                 className="text-sm focus:border-2 focus:border-accentBlue bg-[#595B63] px-2 py-3 w-full outline-none rounded-xl placeholder:text-xs"
                 type="email"
                 name="email"
+                value={state.email}
                 id="email"
                 placeholder="Email"
                 onChange={handleChange}
@@ -104,8 +133,9 @@ export default function Register() {
                   type="text"
                   name="passPhrase"
                   id="passPhrase"
+                  value={passPhrase}
                   placeholder="Enter The Passphrase"
-                  onChange={handleChange}
+                  onChange={(event: any) => setPassPhrase(event.target.value)}
                 />
                 <GoPasskeyFill
                   size={14}
@@ -119,6 +149,7 @@ export default function Register() {
                 type={inputType}
                 name="password"
                 id="password"
+                value={state.password}
                 placeholder="Password"
                 onChange={handleChange}
               />

@@ -2,12 +2,15 @@
 import { useState, useRef, FormEvent } from "react";
 import Link from "next/link";
 import { toast } from "sonner";
-// import { makeApiRequest } from "@/lib/apiUtils";
+import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
+
 
 //Import Icons
 import { MdEmail } from "react-icons/md";
 import { BsEmojiHeartEyesFill } from "react-icons/bs";
 import { FaMehRollingEyes } from "react-icons/fa";
+
 
 interface InitialStateProps {
   email: string,
@@ -18,6 +21,9 @@ const initialState:InitialStateProps = {
   password: ""
 }
 export default function Login() {
+  const router = useRouter();
+  //Loading state for the form
+  const [loading, setLoading] = useState<boolean>(false)
   //Input State, For the Password
   const [inputType, setInputType] = useState<"text" | "password">("password");
   //State for the inputs
@@ -32,24 +38,39 @@ export default function Login() {
   const handleChange = (event: any) => {
       setState({...state, [event.target.name]: event.target.value})
   }
-  //For the Function Submit
-  //const onSubmit = (event: FormEvent) => {
-  //event.preventDefault();
+  //Function for the Form Reset
+  const handleFormReset = () => {
+    setState(initialState);
+  };
+ //For the Submit Function
+ const onSubmit = async (event: FormEvent) => {
+  event.preventDefault();
+  setLoading(true);
+  
+  try {
+    const callback = await signIn("credentials", {
+      ...state,
+      redirect: false
+    });
 
-  const formData = state;
-
-    // Example usage
-    //makeApiRequest('/register', 'post', formData, {
-    //onSuccess: () => {
-      // Handle success
-      // toast.success("Account was created successfully.");
-    // },
-    //onError: (error) => {
-      // Handle error
-      // toast.error("Account was not created try again later.");
-    //},
- // });
-//};
+    if (callback?.ok && !callback?.error) {
+      setLoading(false);
+      toast.success("Welcome");
+      handleFormReset();
+      router.push("/admin/dashboard");
+      
+    } else if (callback?.error) {
+      setLoading(false);
+      handleFormReset();
+      toast.error("Wrong Email or Password");
+    }
+  } catch (error) {
+    console.error(error);
+    setLoading(false);
+    handleFormReset();
+    toast.error("An error occurred during sign-in");
+  }
+};
 
   return (
     <main className="fixed h-screen w-full top-0 left-0 flex items-center justify-center">
@@ -66,7 +87,7 @@ export default function Login() {
             <Link href="/who-are-you/create">Create Account</Link>
           </span>
         </p>
-          <form className="mt-10 w-full">
+          <form className="mt-10 w-full" onSubmit={onSubmit}>
               
             <div className="relative mt-4 w-[20rem] md:w-[30rem]">
               <input
@@ -74,6 +95,7 @@ export default function Login() {
                 type="email"
                 name="email"
                 id="email"
+                value={state.email}
                 placeholder="Email"
                 onChange={handleChange}
               />
@@ -87,6 +109,7 @@ export default function Login() {
                 type={inputType}
                 name="password"
                 id="password"
+                value={state.password}
                 placeholder="Password"
                 onChange={handleChange}
               />
@@ -110,7 +133,7 @@ export default function Login() {
                 className="w-full py-4 text-center text-xs md:text-sm rounded-3xl bg-accentBlue hover:text-accentBlue hover:bg-[#EDEDEE] duration-500 hover:font-semibold"
                 type="submit"
               >
-                Login
+                {loading ? "Submitting..." : "Login"}
               </button>
             </div>
           </form>
