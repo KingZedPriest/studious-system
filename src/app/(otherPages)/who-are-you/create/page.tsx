@@ -13,7 +13,7 @@ import { FaMehRollingEyes } from "react-icons/fa";
 import { GoPasskeyFill } from "react-icons/go";
 
 
-interface InitialStateProps {
+type InitialStateProps = {
   name : string,
   email: string,
   password: string,

