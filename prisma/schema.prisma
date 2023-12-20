@@ -39,7 +39,7 @@ model ContactForm {
 
 model DepositForm {
   id               String @id @default(auto()) @map("_id") @db.ObjectId
-  email             String
+  email            String
   chosenETH        Float
   chosenIOVBalance Float
   transactionID    String

@@ -1,6 +1,8 @@
-"use client"
-import Link from "next/link";
+"use client";
 import useStore from "@/store/store";
+import { useEffect, useState, FormEvent } from "react";
+import { useRouter } from "next/navigation";
+
 //Import Icons
 import { HiFire } from "react-icons/hi";
 import { IoMdSettings } from "react-icons/io";
@@ -10,39 +12,51 @@ import { IoIosArrowUp } from "react-icons/io";
 import { BsFillCreditCardFill } from "react-icons/bs";
 
 const Body = () => {
+  const router = useRouter();
   //For the numbers
-  const { number, setNumber } = useStore();
+  const { chosenNumber, setNumber } = useStore();
+  //For the form
+  // For the Amount to send and everything under
+  const [gasFee, setGasFee] = useState<number>(0);
+  const [balance, setBalance] = useState<number>(0);
+  const [quantity, setQuantity] = useState<number>(0);
 
   //For the Amount to send and everything under
-  let gasFee;
-  let balance;
-  let quantity;
-  switch (number) {
-    case 25000000:
-      gasFee = 0.25;
-      quantity = 25;
-      balance = 25;
-      break;
-    case 50000000:
-      gasFee = 0.3;
-      quantity = 50;
-      balance = 48;
-      break;
-    case 75000000:
-      gasFee = 0.5;
-      quantity = 75;
-      balance = 119;
-      break;
-    case 100000000:
-      gasFee = 1.0;
-      quantity = 100;
-      balance = 396.98;
-      break;
-    default:
-      gasFee = 0;
-      quantity = 0;
-      balance = 0;
-  }
+  useEffect(() => {
+    switch (chosenNumber) {
+      case 25000000:
+        setGasFee(0.25);
+        setQuantity(25);
+        setBalance(25);
+        break;
+      case 50000000:
+        setGasFee(0.3);
+        setQuantity(50);
+        setBalance(48);
+        break;
+      case 75000000:
+        setGasFee(0.5);
+        setQuantity(75);
+        setBalance(119);
+        break;
+      case 100000000:
+        setGasFee(1.0);
+        setQuantity(100);
+        setBalance(396.98);
+        break;
+      default:
+        setGasFee(0);
+        setQuantity(0);
+        setBalance(0);
+    }
+  }, [chosenNumber]);
+  //On Submit Function
+  const onSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    localStorage.setItem("chosenETH", balance.toString())
+    localStorage.setItem("chosenIOVBalance", quantity.toString())
+    router.push("/deposit-bnb");
+  };
   return (
     <main className="py-2 px-4 sm:px-6 lg:px-8 mt-10">
       <p className="text-black text-sm sm:text-base md:text-lg lg:text-xl font-bold">
@@ -63,7 +77,7 @@ const Body = () => {
           className="text-gray-400 cursor-not-allowed"
         />
       </div>
-      <form className="mt-10">
+      <form className="mt-10" onSubmit={onSubmit}>
         <div className="flex justify-between items-end">
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-700 font-bold">
             ETH
@@ -97,7 +111,7 @@ const Body = () => {
           name="balance"
           id="balance"
           disabled
-          value={number}
+          value={chosenNumber}
         />
         <div className="flex justify-between mt-10">
           <p className="text-xs sm:text-sm md:text-base lg:text-lg text-slate-700 font-bold">
@@ -109,50 +123,63 @@ const Body = () => {
         </div>
         <div className="mt-6 flex justify-between">
           <button
-            type="button" onClick={() => setNumber(25000000)}
+            type="button"
+            onClick={() => setNumber(25000000)}
             className={`font-bold px-4 sm:px-6 md:px-8 lg-px-10 py-2 rounded-lg bg-${
-              number === 25000000 ? "inherit text-accentBlue" : "accentBlue"
+              chosenNumber === 25000000
+                ? "inherit text-accentBlue"
+                : "accentBlue"
             } border border-accentBlue hover:bg-inherit duration-500 hover:text-accentBlue text-xs md:text-sm lg:text-base`}
           >
             25%
           </button>
           <button
-            type="button" onClick={() => setNumber(50000000)}
+            type="button"
+            onClick={() => setNumber(50000000)}
             className={`font-bold px-4 sm:px-6 md:px-8 lg-px-10 py-2 rounded-lg bg-${
-              number === 50000000 ? "inherit text-accentBlue" : "accentBlue"
+              chosenNumber === 50000000
+                ? "inherit text-accentBlue"
+                : "accentBlue"
             } border border-accentBlue hover:bg-inherit duration-500 hover:text-accentBlue text-xs md:text-sm lg:text-base`}
           >
             50%
           </button>
           <button
-            type="button" onClick={() => setNumber(75000000)}
+            type="button"
+            onClick={() => setNumber(75000000)}
             className={`font-bold px-4 sm:px-6 md:px-8 lg-px-10 py-2 rounded-lg bg-${
-              number === 75000000 ? "inherit text-accentBlue" : "accentBlue"
+              chosenNumber === 75000000
+                ? "inherit text-accentBlue"
+                : "accentBlue"
             } border border-accentBlue hover:bg-inherit duration-500 hover:text-accentBlue text-xs md:text-sm lg:text-base`}
           >
             75%
           </button>
           <button
-            type="button" onClick={() => setNumber(100000000)}
+            type="button"
+            onClick={() => setNumber(100000000)}
             className={`font-bold px-4 sm:px-6 md:px-8 lg-px-10 py-2 rounded-lg bg-${
-              number === 100000000 ? "inherit text-accentBlue" : "accentBlue"
+              chosenNumber === 100000000
+                ? "inherit text-accentBlue"
+                : "accentBlue"
             } border border-accentBlue hover:bg-inherit duration-500 hover:text-accentBlue text-xs md:text-sm lg:text-base`}
           >
             100%
           </button>
         </div>
-        <button className="w-full mt-10 bg-gray-300 rounded-2xl font-bold text-xs sm:text-sm py-3 md:text-base cursor-not-allowed">
+        <button
+          disabled
+          className="w-full mt-10 bg-gray-300 rounded-2xl font-bold text-xs sm:text-sm py-3 md:text-base cursor-not-allowed"
+        >
           Swap
         </button>
         <p className="my-4 text-red-500 text-xs sm:text-sm md:text-base text-center font-bold">
           Insufficient BNB Smartchain
         </p>
-        <Link
-          href="deposit-bnb"
+        <button
+          type="submit"
           className="bg-accentBlue border-2 border-accentBlue hover:bg-inherit duration-500 hover:text-accentBlue font-bold flex items-center justify-center gap-x-2 py-3 w-full text-xs sm:text-sm md:text-base rounded-2xl"
-        >
-          Deposit BNB <BsFillCreditCardFill size={20} />
-        </Link>
+        >Deposit BNB <BsFillCreditCardFill size={20}/></button>
       </form>
     </main>
   );

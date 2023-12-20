@@ -16,6 +16,7 @@ export default function ConnectButton() {
   const account = useAccount({
     onConnect({ address }) {
       setWalletAddress(address)
+      localStorage.setItem("ConnectedWallet", walletAddress.toString())
       setIsDisconnected(false)
     },
     onDisconnect() {

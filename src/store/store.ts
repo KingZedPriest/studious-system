@@ -1,13 +1,13 @@
 import { create, StateCreator } from 'zustand';
 
 type Store = {
-  number: number;
+  chosenNumber: number;
   setNumber: (value: number) => void;
 };
 
 const createState: StateCreator<Store> = ((set) => ({
-  number: 0,
-  setNumber: (value) => set({ number: value }),
+  chosenNumber: 0,
+  setNumber: (value) => set({ chosenNumber: value }),
 }));
 
 const useStore = create(createState);
