@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useAccount } from 'wagmi';
 import Image from "next/image";
 import Link from "next/link";
+import useWalletAddress from "@/store/walletAddress";
 
 //Import needed component
 import NotConnected from "./NotConnected";
@@ -10,13 +11,13 @@ import NotConnected from "./NotConnected";
 import logo from "../../../public/logo.png";
 
 export default function ConnectButton() {
-  const [walletAddress, setWalletAddress] = useState<any>("")
   const [isDisconnected, setIsDisconnected] = useState<boolean>(true)
+  const { setWalletAddress } = useWalletAddress();
   //Functions
   const account = useAccount({
     onConnect({ address }) {
-      setWalletAddress(address)
-      localStorage.setItem("ConnectedWallet", walletAddress.toString())
+      const connectedAddress = address?.toString() ?? ""
+      setWalletAddress(connectedAddress)
       setIsDisconnected(false)
     },
     onDisconnect() {

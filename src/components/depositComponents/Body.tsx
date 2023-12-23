@@ -4,6 +4,7 @@ import { useRef, useState, useEffect, FormEvent } from "react";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { makeApiRequest } from "@/lib/apiUtils";
+import useWalletAddress from '@/store/walletAddress';
 //Import Needed Images
 import bnb from "../../../public/bnb.png";
 //Import Needed Icons
@@ -15,35 +16,33 @@ const Body = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [chosenETH, setChosenETH] = useState<number>();
   const [chosenIOVBalance, setChosenIOVBalance] = useState<number>();
-  const [connectedWallet, setConnectedWallet] = useState<string>("");
   const [userEmail, setUserEmail] = useState<string>("");
   const [transactionID, setTransactionID] = useState<string>("");
+  const { walletAddress } = useWalletAddress();
 
-  useEffect(() => {
-    const retrieveLocalStorageValues = () => {
+    useEffect(() => {
+      const retrieveLocalStorageValues = () => {
       const storedChosenETH = localStorage.getItem("chosenETH");
       const storedChosenIOVBalance = localStorage.getItem("chosenIOVBalance");
-      const storedConnectedWallet = localStorage.getItem("connectedWallet");
       const storedUserEmail = localStorage.getItem("userEmail");
 
       setChosenETH(parseFloat(storedChosenETH || ""));
       setChosenIOVBalance(parseFloat(storedChosenIOVBalance || ""));
-      setConnectedWallet(storedConnectedWallet || "");
       setUserEmail(storedUserEmail || "");
 
       // Check if required values are missing and redirect to home page
       if (
         !storedUserEmail ||
-        !storedConnectedWallet ||
         !storedChosenIOVBalance ||
-        !storedChosenETH
+        !storedChosenETH ||
+        walletAddress.length === 0
       ) {
+        toast.error("Kindly Fill The Form To Continue.")
         router.push("/"); // Redirect to the home page
       }
-    };
-
-    retrieveLocalStorageValues();
-  }, [router]);
+    }
+    retrieveLocalStorageValues()
+    })
 
   //States for the time
   const initialTime = parseInt(
@@ -109,21 +108,22 @@ const Body = () => {
   //On Submit function
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
+
     setLoading(true);
     const formData = {
       storedChosenETH: chosenETH,
       storedUserEmail: userEmail,
       storedChosenIOVBalance: chosenIOVBalance,
-      storedConnectedAddress: connectedWallet,
+      storedConnectedAddress: walletAddress,
       storedTransactionID: transactionID,
     };
-    console.log(formData)
+
     makeApiRequest("/depositForm", "post", formData, {
       onSuccess: () => {
         //Handle Success
         setLoading(false);
         toast.success("Your Transaction ID  Was Submitted Successfully.");
-        router.push("/");
+        router.push("/connect-wallet");
       },
       onError: (error: any) => {
         //Handle Error
