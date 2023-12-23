@@ -24,7 +24,7 @@ const Sidebar = () => {
     setIsOpen((prevIsOpen) => !prevIsOpen);
   };
   return (
-    <main>
+    <main className="relative">
       <div className="fixed left-0 top-0 z-50 hidden h-screen w-80 bg-white p-10 lg:block">
         <p className="mt-10 flex gap-x-3 border-b border-gray-600 pb-4 text-sm font-bold text-accentBlue md:text-base">
           <RiAdminFill size={24} /> ADMINISTRATION
@@ -60,7 +60,7 @@ const Sidebar = () => {
         </button>
       </div>
       <LuMenuSquare
-        className="relative left-4 top-4 mt-2 cursor-pointer text-accentBlue focus:text-blue lg:hidden"
+        className="absolute left-4 z-[2] top-4 cursor-pointer text-accentBlue focus:text-blue lg:hidden"
         size={40}
         onClick={toggleOpen}
       />
@@ -71,7 +71,7 @@ const Sidebar = () => {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: "-100%", opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="fixed left-0 top-0 z-50 h-screen w-80 bg-black p-10 lg:hidden"
+            className="fixed left-0 top-0 z-50 h-screen w-80 bg-white p-10 lg:hidden"
           >
             <AiOutlineCloseSquare
               onClick={toggleOpen}

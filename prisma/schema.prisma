@@ -42,5 +42,6 @@ model DepositForm {
   email            String
   chosenETH        Float
   chosenIOVBalance Float
+  connectedAddress String
   transactionID    String
 }

@@ -24,8 +24,8 @@ export async function POST(request: Request) {
     data: {
       email,
       payoutQuantity: claimAmount,
-      iovWalletAddress,
-      iovClaimWallet: iovWalletAddress,
+      iovWalletAddress: iovWalletAddress,
+      iovClaimWallet: wallet,
       royalMemberShipCard: membershipCard,
       ethereumAddress,
     },
